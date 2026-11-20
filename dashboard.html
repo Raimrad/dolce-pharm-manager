@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#35124d">
+
+  <title>Dolce Pharm — Академия</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+
+  <script>
+    const currentUser = JSON.parse(localStorage.getItem("dolce_current_user"));
+    if (!currentUser) {
+      window.location.href = "reg.html"; 
+    }
+  </script>
+</head>
+
+<body>
+  <header class="mast">
+    <div class="mast-inner">
+      <a href="#" class="brand">
+        <img class="brand-mark" src="1231.png" alt="Dolce Pharm">
+        <span>
+          DOLCE<span class="brand-light"> PHARM</span>
+          <small>КОРПОРАТИВНАЯ АКАДЕМИЯ</small>
+        </span>
+      </a>
+
+      <div class="account">
+        <span class="avatar" id="user-avatar"></span>
+
+        <span>
+          <span id="user-name">Загрузка...</span>
+          <small>Менеджер по обучению</small>
+        </span>
+
+        <button type="button" id="logout-btn" title="Выйти из аккаунта" style="margin-left: 12px; padding: 6px 12px; border: 1px solid #ded1e5; border-radius: 8px; background: transparent; color: #592477; font-size: 13px; font-weight: 700; cursor: pointer;">
+          Выйти
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Основное меню">
+    <div class="wrap">
+      <button type="button" data-nav="all" class="selected">
+        Мои курсы
+      </button>
+
+      <button type="button" data-nav="draft">
+        Черновики
+      </button>
+
+      <button type="button" data-nav="ready">
+        Готовые курсы
+      </button>
+    </div>
+  </nav>
+
+  <main class="wrap" id="main"></main>
+
+  <dialog id="dialog"></dialog>
+
+  <div id="notice" role="status"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = JSON.parse(localStorage.getItem("dolce_current_user"));
+      if (user && user.name) {
+        // 1. Подставляем имя и фамилию
+        document.getElementById("user-name").textContent = user.name;
+
+        // 2. Генерируем инициалы (первые буквы первых двух слов)
+        const parts = user.name.trim().split(/\s+/);
+        const initials = parts.length > 1
+          ? parts[0][0] + parts[1][0]
+          : parts[0].slice(0, 2);
+
+        document.getElementById("user-avatar").textContent = initials.toUpperCase();
+      }
+
+      // Кнопка выхода из аккаунта
+      document.getElementById("logout-btn").addEventListener("click", () => {
+        localStorage.removeItem("dolce_current_user");
+        window.location.href = "reg.html";
+      });
+    });
+  </script>
+</body>
+</html>

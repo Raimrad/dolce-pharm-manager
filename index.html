@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2e103c">
+  <title>Вход для менеджеров · Dolce Pharm</title>
+  <link rel="stylesheet" href="style_reg.css">
+  <script defer src="access.js"></script>
+</head>
+<body>
+  <main class="layout">
+    <section class="cover" aria-labelledby="cover-title">
+      <a class="brand" href="./index.html">
+        <img class="mark" src="1231.png" alt="">
+        <span>
+          <strong>DOLCE PHARM</strong>
+          <small>Корпоративная академия</small>
+        </span>
+      </a>
+
+      <div class="cover-copy">
+        <p class="kicker">Академия Dolce Pharm</p>
+        <h1 id="cover-title">Кабинет <br>менеджера<span>.</span></h1>
+        <p>Создавайте курсы и готовьте учебные материалы для сотрудников производства.</p>
+      </div>
+
+      <div class="cover-footer">
+        <span>Dolce Pharm</span>
+        <span>Алматы, Казахстан</span>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Доступ к академии">
+      <div class="content">
+        <div class="tabs" aria-label="Способ доступа">
+          <button type="button" aria-pressed="true" data-mode="login">
+            Вход
+          </button>
+          <button type="button" aria-pressed="false" data-mode="register">
+            Регистрация
+          </button>
+        </div>
+
+        <div id="login">
+          <p class="role">Для менеджеров по обучению</p>
+          <h2>Вход в академию</h2>
+          <p class="intro">Войдите, чтобы создавать и редактировать курсы.</p>
+
+          <form id="login-form">
+            <label>
+              Рабочая почта
+              <input name="email" type="email" autocomplete="username"
+                     placeholder="name@company.kz" maxlength="254" required>
+            </label>
+
+            <label>
+              Пароль
+              <input name="password" type="password"
+                     autocomplete="current-password"
+                     placeholder="Введите пароль" maxlength="128" required>
+            </label>
+
+            <p class="feedback" role="alert" hidden></p>
+            <button class="primary" type="submit">Войти</button>
+          </form>
+
+          <p class="alternate">
+            Впервые здесь?
+            <button class="link" type="button" data-mode="register">
+              Регистрация
+            </button>
+          </p>
+        </div>
+
+        <div id="register" hidden>
+          <p class="role">Для менеджеров по обучению</p>
+          <h2>Регистрация</h2>
+          <p class="intro">Используйте рабочую почту и код от администратора академии.</p>
+
+          <form id="register-form">
+            <label>
+              Имя и фамилия
+              <input name="name" autocomplete="name" placeholder="Имя Фамилия"
+                     minlength="2" maxlength="120" required>
+            </label>
+
+            <label>
+              Рабочая почта
+              <input name="email" type="email" autocomplete="username"
+                     placeholder="name@company.kz" maxlength="254" required>
+            </label>
+
+            <label>
+              Пароль
+              <input name="password" type="password" autocomplete="new-password"
+                     placeholder="Минимум 12 символов"
+                     minlength="12" maxlength="128" required>
+            </label>
+
+            <label>
+              Код приглашения
+              <input name="invite" autocomplete="off"
+                     placeholder="Код от администратора" maxlength="128" required>
+            </label>
+
+            <p class="feedback" role="alert" hidden></p>
+            <button class="primary" type="submit">Зарегистрироваться</button>
+          </form>
+
+          <p class="alternate">
+            Уже есть аккаунт?
+            <button class="link" type="button" data-mode="login">Войти</button>
+          </p>
+        </div>
+      </div>
+
+      <footer>Корпоративная академия Dolce Pharm</footer>
+    </section>
+  </main>
+</body>
+</html>
